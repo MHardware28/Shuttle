@@ -4,10 +4,14 @@ public class ShuttleContext {
 
     public ShuttleContext(ShuttleObserver observerSystem) {
         this.observerSystem = observerSystem;
+        this.currentState = new LeavingState();
     }
 
     public void setState(State state) {
         this.currentState = state;
+    }
+    public State getState() {
+        return this.currentState;
     }
 
     public void leaving(String shuttleLocation) {

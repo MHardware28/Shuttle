@@ -11,7 +11,7 @@ public class LeavingState implements State{
     }
     @Override
     public void isArriving(ShuttleContext context, String shuttleLocation){
-        // not valid in this state seeing that the shuttle is leaving its location currently
+
         System.out.println("Cannot arrive if shuttle is leaving.");
     }
 }
