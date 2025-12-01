@@ -17,6 +17,13 @@ public class ShuttleService {
     }
 
     public Route getRoute(){
+
+        return route;
+    }
+    public void resetRoute() {
+        this.route = null;
+    }
+
         return route;
     }
 
