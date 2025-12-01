@@ -7,6 +7,12 @@ public class Main {
         observer1.addObserver((location, time) -> {
             System.out.println("UI Updated: " + location + " | ETA: " + time);
         });
+        
+        ShuttleService shuttleService = ShuttleFactory.createShuttle();
+        System.out.println("Shuttle Route Stops");
+        for(Stop s: shuttleService.getRoute().getStops()){
+            System.out.println("  " + s.getName());
+    
 
         // creates the different states then notifies the observers
         context.setState(new LeavingState());

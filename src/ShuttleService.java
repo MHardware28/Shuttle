@@ -24,5 +24,7 @@ public class ShuttleService {
         this.route = null;
     }
 
+        return route;
+    }
 
 }
