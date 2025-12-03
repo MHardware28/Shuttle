@@ -1,3 +1,4 @@
+//This class deals with the leaving state of the shuttle, if the shuttle has already left it updates the status to output that message as well as giving an estimate as to when it will get to the other location.
 public class LeavingState implements State{
 
     @Override
