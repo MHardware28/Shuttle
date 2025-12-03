@@ -1,3 +1,4 @@
+// Author: Sara-Lee Brown 
 /*
 ShuttleService implements a Singleton pattern that manages the current shuttle Route.
 Only one wants one instance of a shuttle.
