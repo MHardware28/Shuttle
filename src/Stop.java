@@ -1,4 +1,3 @@
-// Author: Sara-Lee Brown 
 /*
 Represents a single stop along a shuttle route.
 */
