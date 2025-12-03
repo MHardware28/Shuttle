@@ -1,4 +1,3 @@
-// Author: Sara-Lee Brown 
 import java.util.ArrayList;
 import java.util.List;
 /*  Creates a ShuttleService based on the specified shuttle type.
