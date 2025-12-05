@@ -29,7 +29,7 @@ GUI Integration:
 - A facade to connect all backend logic to the GUI
 
 ---
-##Timeline
+## Timeline
 Oct 28, 2025 – Initial ideas
 Nov 13, 2025 – Project proposal
 Nov 30, 2025 – First draft
@@ -49,6 +49,9 @@ Dec 4, 2025 -  Final Project Demo
 ---
 ## UML
 <img width="1029" height="1119" alt="ShuttleDiagram" src="https://github.com/user-attachments/assets/ae0c8818-b4f5-4752-bae8-3d08be0a7e7f" />
+
+## Youtube Link
+> 
 
 
   
