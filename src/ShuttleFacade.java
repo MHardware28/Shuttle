@@ -4,11 +4,29 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- *  Shuttle Facade:
- *   Random ETA 2–10 minutes
- *  Tick = 1 minute countdown
- *  ENROUTE and ARRIVED messages
+ * AUTHORED BY RICH-ANN
+ * The ShuttleFacade class hides the complicated logic of the shuttle system.
+ * The shuttle logic involves multiple classes:
+ *      • ShuttleSimulation
+ *      • ShuttleContext (State Pattern)
+ *      • ShuttleObserver & Observers
+ *      • Stop objects
+ * - Instead of the GUI talking to all those classes, the GUI ONLY talks
+ *   to the Facade. This keeps the GUI clean and the logic separated.
+ *
+ * The facade:
+ * 1. Loads all shuttle stops.
+ * 2. Starts the shuttle simulation (Day, Night, Weekend).
+ * 3. Manages subscriptions to shuttle stop updates.
+ * 4. Forwards observer notifications to the GUI.
+ * 5. Provides helper methods such as:
+ *      - selectShuttleType()
+ *      - subscribeStop()
+ *      - unsubscribeStop()
+ *      - stopSimulation()
+ *      - getStops() for building buttons
  */
+
 public class ShuttleFacade implements ShuttleFacadeInterface {
 //new instance of observer object
     private final ShuttleObserver shuttleObserver = new ShuttleObserver();
@@ -33,6 +51,10 @@ public class ShuttleFacade implements ShuttleFacadeInterface {
 
     private boolean running = false;//one timer at a time
 
+    private ShuttleType selectedType;
+
+
+
     public ShuttleFacade() {
         //the context requires the observer system so state transitions can notify subscribers
         shuttleContext = new ShuttleContext(shuttleObserver);
@@ -41,6 +63,7 @@ public class ShuttleFacade implements ShuttleFacadeInterface {
 
     public void selectShuttleType(ShuttleType type) {
         //select shuttle type from factory
+        this.selectedType = type;
         shuttleService = ShuttleFactory.createShuttle(type);
 
         if (shuttleService.getRoute() != null) {// Extract route’s stop list
@@ -53,6 +76,10 @@ public class ShuttleFacade implements ShuttleFacadeInterface {
         currentDestination = null;
         currentEtaSeconds = 0;
         stopTimerIfRunning();
+    }
+
+    public ShuttleType getSelectedType(){
+        return selectedType;
     }
 
    public void startSimulation() {
@@ -168,11 +195,12 @@ public class ShuttleFacade implements ShuttleFacadeInterface {
         currentDestination = stops.get(currentIndex).getName();
 
 
-        if (currentIndex > 0) {
-            String previousStop = stops.get(currentIndex - 1).getName();
-            shuttleContext.setState(new LeavingState());
-            shuttleContext.getState().isLeaving(shuttleContext, previousStop);
-        }
+
+        String previousStop = stops.get((currentIndex - 1 + stops.size()) % stops.size()).getName();
+        shuttleContext.setState(new LeavingState()); //pul on leaving state logic
+        shuttleContext.getState().isLeaving(shuttleContext, previousStop);
+
+
 
         //Random ETA between 2-10
         int randomMinutes = rand.nextInt(9) + 2;
@@ -181,7 +209,7 @@ public class ShuttleFacade implements ShuttleFacadeInterface {
         //ENROUTE state
         shuttleContext.setState(new EnrouteState());
         shuttleContext.updateStatus(
-                "Shuttle is enroute to " + currentDestination,
+                "New Shuttle is enroute to " + currentDestination,
                 randomMinutes
         );
     }
@@ -194,3 +222,4 @@ public class ShuttleFacade implements ShuttleFacadeInterface {
         unsubscribeCurrent();
     }
 }
+
