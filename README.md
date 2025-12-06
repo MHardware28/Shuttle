@@ -38,7 +38,7 @@ Dec 4, 2025 -  Final Project Demo
 
 ---
 ## How to Run
-- Download zip file, open in Intellij
+- Download zip file from the MASTER branch, open in Intellij
 - Compile all project classes.
 - Run ShuttleGUI to launch the interface.
 - Choose a shuttle type and begin the simulation.
