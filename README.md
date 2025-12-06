@@ -39,6 +39,9 @@ Dec 4, 2025 -  Final Project Demo
 ---
 ## How to Run
 - Download zip file from the MASTER branch, open in Intellij
+- Download the image shuttle.png
+- navigate to the shuttle.png image in files, right click, and select copy as path. 
+- ENSURE that line 74 in ShuttleGui is changed to reflect the path of your shuttle.png file.
 - Compile all project classes.
 - Run ShuttleGUI to launch the interface.
 - Choose a shuttle type and begin the simulation.
