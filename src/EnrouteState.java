@@ -1,3 +1,4 @@
+//This class deals with the enroute state of the shuttle, if the shuttle is already enroute to its destination it updates the status to output that message as well as give a estimated time of arrival..
 public class EnrouteState implements State {
 
     @Override

@@ -1,3 +1,4 @@
+//This class deals with the arriving state of the shuttle, if the shuttle is already arriving it updates the status to output that message.
 public class ArrivingState implements State{
 
     @Override
