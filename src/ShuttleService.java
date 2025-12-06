@@ -36,7 +36,7 @@ public class ShuttleService {
     public void resetRoute() {
         this.route = null;
     }
-        return route;
+
     }
 
-}
+
