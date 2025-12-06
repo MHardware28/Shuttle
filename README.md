@@ -3,20 +3,20 @@ This project is a Java-based shuttle tracker simulation designed to demonstrate 
 The system simulates shuttle movement through various states, updates a graphical interface, and allows users to select shuttle types and control the simulation through a facade.
 ---
 ## Features
-State Pattern:
+State Pattern by Mackayla:
 - Manages shuttle behavior using ArrivingState, LeavingState, and EnrouteState, controlled through ShuttleContext.
 
-Singleton + Factory Method Pattern:
+Singleton + Factory Method Pattern By Sara-Lee:
 - Creates different shuttle types (DayShuttle, NightShuttle, WeekendShuttle) using both a simple factory and specialized ShuttleCreator subclasses.
 - The singleton ensures theres only one instance of the shuttle in the program.
 
-Observer Pattern:
+Observer Pattern by Mackayla:
 - The ShuttleObserver notifies all registered observers (including ShuttleGUI) whenever shuttle status or location changes.
 
-Facade Pattern:
+Facade Pattern by Rich-Ann:
 - ShuttleFacade provides a simplified interface for starting/stopping simulations, selecting shuttle types, and managing system interactions.
 
-GUI Integration:
+GUI Integration by Rich-Ann:
 - A Swing-based interface (ShuttleGUI) allows users to visualize shuttle movement and interact with the simulation.
 
 ---
