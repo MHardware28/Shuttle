@@ -6,15 +6,12 @@ public class Stop {
 /* Creates a new stop 
     Returns the name of the stop
 */
+
     public Stop(String name) {
         this.name = name;
     }
 
     public String getName() {
-    public Stop(String name){
-        this.name=name;
-    }
-    public String getName(){
         return name;
     }
 }
